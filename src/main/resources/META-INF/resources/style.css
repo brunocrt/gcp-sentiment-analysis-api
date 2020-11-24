@@ -1,0 +1,82 @@
+.navbar-fixed-top {
+  min-height: 80px;
+  background-color: #eeeeff;
+  width: 100% !important;
+}
+
+.navbar > h1 {
+  line-height: 10px; 
+  font-size: 20px; 
+  color:#036eb1;
+  font-family: 'Baloo', cursive; 
+}
+#myApp, p {
+  font-family: 'Noto Sans', sans-serif; 
+}
+
+form {
+  height:200px; 
+  font-size: 12pt;
+  margin-top: 40px;
+  text-align: center;
+  color: #036eb1;
+}
+
+input[type=text] {
+  color: #e4455d;
+}
+
+#userInfo {
+  text-align: center; 
+  font-family: 'Noto Sans', sans-serif; 
+  color: #036eb1;
+}
+
+#power-gauge-1 g.arc {
+  fill: steelblue;
+}
+
+#power-gauge-1 g.pointer {
+  fill: #000000;
+  stroke: #0000ff;
+}
+
+#power-gauge-1 g.label text {
+  text-anchor: middle;
+  font-size: 10px;
+  font-weight: bold;
+  fill: #666;
+}
+
+#power-gauge-2 g.arc {
+  fill: steelblue;
+}
+
+#power-gauge-2 g.pointer {
+  fill: #000000;
+  stroke: #0000ff;
+}
+
+#power-gauge-2 g.label text {
+  text-anchor: middle;
+  font-size: 10px;
+  font-weight: bold;
+  fill: #666;
+}
+
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.button:disabled {
+  opacity: 0.5;
+}
