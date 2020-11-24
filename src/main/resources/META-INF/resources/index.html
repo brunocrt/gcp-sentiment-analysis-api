@@ -4,15 +4,18 @@
   
   <meta charset="UTF-8">
   <title>GCP - Sentiment Analysis</title>
-  
-  <script src="https://codepen.io/chriscoyier/pen/yIgqi.js"></script>
+
   <script type="text/javascript" src="https://d3js.org/d3.v2.min.js"></script>
   <script src="https://fb.me/react-0.11.1.js"></script>
   <script src="https://fb.me/JSXTransformer-0.11.0.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-with-addons.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js'></script>
+  <script src="/scripts/gauge.js"></script>
 
   <link href="https://fonts.googleapis.com/css?family=Baloo|Noto+Sans" rel="stylesheet">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="shortcut icon" href="/images/favicon.ico" />
 
 </head>
 
@@ -23,22 +26,24 @@
   <h1 class="navbar-brand mb-0">Sentiment Analysis</h1>
 </nav>
 
-
 <div class="row">
   <div class="column">
     <div id="myApp"></div>
-    <div id="userInfo"></div>
+    <div id="result"></div>
     <div id="magnitude">0</div>
+    <div id="sentiment">0</div>
   </div>
   <div class="column">
     <div class="row">
       <div class="column">
         <br/> <br/>
-        <div id="power-gauge-1"></div> 
+        <div id="sentiment">
+          <img src="/images/neutral.png" alt="positive sentiment"/>
+        </div> 
       </div>
       <div class="column">
         <br/> <br/>
-        <div id="power-gauge-2"></div>
+        <div id="power-gauge-1"></div>
       </div>
     </div>
   </div>
@@ -46,34 +51,8 @@
 
 
 <!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-with-addons.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js'></script><script  src="./script.js"></script>
-<script src="/gauge.js"></script>
-<script>
-  function loadGauges() {
-    
-    var gauge1 = gauge('#power-gauge-1', {
-      size: 200,
-      clipWidth: 250,
-      clipHeight: 250,
-      ringWidth: 20,
-      maxValue: 90,
-      transitionMs: 1000,
-    });
 
-    gauge1.renderGauge();
-    
-    function updateReadings() {
-      var magnitude = document.getElementById('magnitude').innerHTML;
-      gauge1.update(magnitude);
-    }
-    
-    // every few seconds update reading values
-    setTimeout(function() { updateReadings(); }, 1000);
-  
-  }
-
-</script>
+<script  src="./scripts/main.js"></script>
 
 </body>
 </html>

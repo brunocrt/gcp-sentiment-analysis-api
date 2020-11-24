@@ -160,3 +160,25 @@ var gauge = function(container, configuration) {
 	return that;
 };
 
+function loadGauges() {
+      
+	var gauge1 = gauge('#power-gauge-1', {
+	  size: 200,
+	  clipWidth: 250,
+	  clipHeight: 250,
+	  ringWidth: 20,
+	  maxValue: 90,
+	  transitionMs: 1000,
+	});
+
+	gauge1.renderGauge();
+	
+	function updateReadings() {
+	  var magnitude = document.getElementById('magnitude').innerHTML;
+	  gauge1.update(magnitude);
+	}
+	
+	// every few seconds update reading values
+	setInterval(function() { updateReadings() }, 1500);
+  
+  }

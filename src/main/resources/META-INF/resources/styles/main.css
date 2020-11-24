@@ -26,9 +26,10 @@ input[type=text] {
   color: #e4455d;
 }
 
-#userInfo {
+#result {
   text-align: center; 
   font-family: 'Noto Sans', sans-serif; 
+  font-size: 12pt;
   color: #036eb1;
 }
 
@@ -48,26 +49,10 @@ input[type=text] {
   fill: #666;
 }
 
-#power-gauge-2 g.arc {
-  fill: steelblue;
-}
-
-#power-gauge-2 g.pointer {
-  fill: #000000;
-  stroke: #0000ff;
-}
-
-#power-gauge-2 g.label text {
-  text-anchor: middle;
-  font-size: 10px;
-  font-weight: bold;
-  fill: #666;
-}
-
 
 .column {
   float: left;
-  width: 50%;
+  width: 40%;
 }
 
 /* Clear floats after the columns */

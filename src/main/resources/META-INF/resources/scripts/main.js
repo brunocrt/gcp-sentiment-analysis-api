@@ -23,10 +23,11 @@ class MyForm extends React.Component {
         magnitude: parseFloat(r.magnitude)
       });
       this.setState({ loading: "false" });
+      ReactDOM.render(React.createElement("div", null, "Result: " , this.state.result), document.getElementById('result'));
+      //event.preventDefault();
     });
 
-    ReactDOM.render(React.createElement("h3", null, this.state.result), document.getElementById('userInfo'));
-    event.preventDefault();
+ 
   }
 
   render() {
@@ -37,6 +38,8 @@ class MyForm extends React.Component {
       React.createElement("br", null),
       React.createElement("textarea", { rows: "3", cols: "50", onChange: this.handleChange },
       this.state.text)),
+
+      React.createElement("br", null),
 
       React.createElement("br", null),
       
