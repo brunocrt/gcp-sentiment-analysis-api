@@ -175,7 +175,7 @@ function loadGauges() {
 	
 	function updateReadings() {
 	  var magnitude = document.getElementById('magnitude').innerHTML;
-	  gauge1.update(magnitude);
+	  gauge1.update(magnitude, null);
 	}
 	
 	// every few seconds update reading values

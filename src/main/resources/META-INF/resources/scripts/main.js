@@ -2,7 +2,7 @@ class MyForm extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { value: '', text: '', magnitude: '' };
+    this.state = { value: '', text: '', magnitude: '', sentiment: '' };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -18,12 +18,16 @@ class MyForm extends React.Component {
     fetch('/nlp/sentiment?text=' + this.state.text)
     .then(res => res.json())
     .then(r => {
+
+      var sentiment_type = (r.score == 0.0 ? "neutral" : 
+      ( r.score > 0.0 ? "positive" :"negative") );
       this.setState({
         result: JSON.stringify(r),
-        magnitude: parseFloat(r.magnitude)
+        magnitude: parseFloat(r.magnitude)*100,
+        sentiment: sentiment_type
       });
       this.setState({ loading: "false" });
-      ReactDOM.render(React.createElement("div", null, "Result: " , this.state.result), document.getElementById('result'));
+      ReactDOM.render(React.createElement("div", null, this.state.magnitude), document.getElementById('magnitude'))
       //event.preventDefault();
     });
 
@@ -33,6 +37,7 @@ class MyForm extends React.Component {
   render() {
     return (
       React.createElement("form", null,
+
       React.createElement("label", null, "Insert text bellow",
 
       React.createElement("br", null),
@@ -43,8 +48,19 @@ class MyForm extends React.Component {
 
       React.createElement("br", null),
       
-      React.createElement("input", { type: "button", value: "Analyse", id: "myBtn", placeholder: "Analyse Sentiment", onClick: this.handleSubmit })));
-  }}
+      React.createElement("input", { type: "button", value: "Analyse", id: "myBtn", placeholder: "Analyse Sentiment", onClick: this.handleSubmit }),
+      
+      React.createElement("br", null),
+      
+      React.createElement('img', {
+        src: `/images/${this.state.sentiment}.png`
+      }),
+
+      React.createElement("div", null, "Result: " , this.state.result),
+
+      ));
+
+    }}
 
   
 
